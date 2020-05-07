@@ -1,0 +1,34 @@
+main(){
+  var liste=new List();
+  liste.add("Ahmad");
+  liste.add("Mehmed");
+  liste.add("Şerif");
+  liste.add("Ali");
+  liste.add("Feyza");
+  liste.add("Zeynep");
+  print("Listedeki eleman sayısı ${liste.length}");
+  print("Listedeki ilk eleman ${liste.first}");
+  print("Listedeki son eleman ${liste.last}");
+  print("Listenin boş durumu = ${liste.isEmpty}");
+  print("Listenin doluluk durumu =${liste.isNotEmpty}");
+  print("Listenin elemanları aşağıdadır.");
+  print(liste);
+  print("Listenin elemanlarının ters sırada yazılışı aşağıdadır.");
+  print(liste.reversed);
+  liste.insert(0,12);
+  liste.insert(1,244);
+  liste.insert(2,45454);
+  liste.insert(3,"ELLAH");
+  print("Başa eklenen 4 elemandan sonra elemanlaeın listesi aşağıdadır.");
+  print(liste);
+  liste.insertAll(0,[34,54,2,"ESDSD","ÖZER"]);
+  print("34,54,2,'ESDSD' VE \"ÖZER\" elemanlarının eklenmesiyle listenin son hali:" );
+  print(liste);
+  liste.addAll([23,43,1,4,23,43,12]);
+  print("23,43,1,4,23,43,12 elemanlarının listenin sonunan eklenmesiyle listenin son hali:");
+  print(liste);
+  liste.clear();
+  print("Listedeki elemanları sildikten sonra listenin son hali");
+  liste.add("sd");
+  print(liste);
+}
