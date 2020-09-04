@@ -23,22 +23,31 @@ class altsinif extends sinif {
     print('\'fonksiyon2\' dolduruldu.');
   }
 
+  int toplamsonuc;
   @override
   int topla(List<int> sayilar, adet) {
     sayilistesi(sayilar, adet);
     for (i = 0; i < adet; i++) {
       toplam = toplam + sayilar[i];
     }
+    toplamsonuc = toplam;
     return toplam;
   }
 
+  int carpimsonuc;
   @override
   int carp(List<int> sayilar, adet) {
     sayilistesi(sayilar, adet);
     for (i = 0; i < adet; i++) {
       carpim = carpim * sayilar[i];
     }
+    carpimsonuc = carpim;
     return carpim;
+  }
+
+  goster() {
+    print("toplam --> $toplamsonuc");
+    print("çarpım --> $carpimsonuc");
   }
 
   // ignore: missing_return
@@ -52,8 +61,12 @@ class altsinif extends sinif {
 
 main(List<String> args) {
   //sinif nesnesinif = new sinif(); sinif bir soyut sınıf olduğundan nesnesi oluşturulup erişilemedi
-  altsinif nesne = new altsinif();
-  List<int> sayilistesi = new List(5);
-  print("Oluşturulan sayıların toplamı -->${nesne.topla(sayilistesi, 5)}");
-  print("Oluşturulan sayıların çarpımı -->${nesne.carp(sayilistesi, 5)}");
+  altsinif nesne_sinif = new altsinif();
+  List<int> degerler = new List(5);
+  nesne_sinif.topla(degerler, 5);
+  nesne_sinif.carp(degerler, 5);
+  //yukarıdaki iki fonksiyonu kullanmadan değer üretilemez.
+  //Çünkü goster fonksiyonu bu fonksiyoların
+  //çıktılarına ihtiyaç duyuyor.
+  nesne_sinif.goster();
 }
