@@ -1,6 +1,5 @@
 abstract class soyutsinif {
   fonk();
-
   soyutsinif();
   fonk2();
   int saas;
@@ -11,7 +10,7 @@ class altsinif extends soyutsinif {
   int sayi;
   altsinif(sayi) {
     birdeger++;
-    print(" sayısı aktif. statik değerin durumu => $birdeger");
+    print("$sayi sayısı aktif. statik değerin durumu => $birdeger");
   }
   @override
   fonk() {
@@ -54,5 +53,9 @@ class ozelhata implements Exception {
 
 main(List<String> args) {
   altsinif sinif = new altsinif(12);
+  altsinif sinif2 = new altsinif(123);
+  altsinif sinif3 = new altsinif(121);
+  altsinif sinif4 = new altsinif(1);
+  altsinif sinif5 = new altsinif(23);
   sinif.dgr = 34;
 }
