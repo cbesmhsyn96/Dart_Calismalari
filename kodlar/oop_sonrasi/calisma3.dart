@@ -76,8 +76,65 @@ kontrol(bool musluman, bool askerlikyapti, bool sunnetoldu, int yasi) {
   }
 }
 
+class islemler {
+  num sayi1, sayi2, verdigimizdeger, verdigimizdeger2;
+  //Aşağıdaki kodun anlamı mainde sayi1 ve sayi2 ye verdiğimiz değerler okunacak ve okunan bu değerler
+  //belirlediğimiz verdigimizdeger ve verdigimizdeger2 değirkenlerine değer olarak geçirilecek.
+  num get sayi1_ {
+    return sayi1;
+  }
+
+  set sayi1_(verdigimizdeger) {
+    verdigimizdeger = sayi1;
+  }
+
+  num get sayi2_ {
+    return sayi2;
+  }
+
+  set sayi2_(verdigimizdeger2) {
+    verdigimizdeger2 = sayi2;
+  }
+
+  num topla(num verdigimizdeger, num verdigimizdeger2) {
+    return verdigimizdeger + verdigimizdeger2;
+  }
+
+  num cikar(num verdigimizdeger, num verdigimizdeger2) {
+    return verdigimizdeger - verdigimizdeger2;
+  }
+
+  num carp(num verdigimizdeger, num verdigimizdeger2) {
+    return verdigimizdeger * verdigimizdeger2;
+  }
+
+  bol(num verdigimizdeger, num verdigimizdeger2) {
+    num sonuc;
+    sonuc = verdigimizdeger / verdigimizdeger2;
+    throw bolmehatasi();
+    try {
+      print("${verdigimizdeger} / ${verdigimizdeger2} =${sonuc}");
+    } catch (e) {
+      print(e.hata());
+    }
+  }
+
+  List<num> sayilistesiolustur(List<num> sayilar, int adet) {
+    int i = 0;
+    for (i = 0; i < adet; i++) {
+      sayilar[i] = pow(i, 2);
+    }
+    return sayilar;
+  }
+}
+
+class bolmehatasi implements Exception {
+  String hata() => "Tanımsız.İkinci sayı sıfır olamaz.";
+}
+
+//
 main(List<String> args) {
-  insan i1 = new insan('Mersin');
+  /* insan i1 = new insan('Mersin');
   i1.kilo = 78;
   i1.boy = 1.90;
   fonk(i1.vki(i1.kilo, i1.boy));
@@ -92,5 +149,12 @@ main(List<String> args) {
   e1i.boy = e1.boy;
   e1i.kilo = e1.kilo;
   kontrol(e1.muslumanmi, e1.askerlikyaptimi, e1.sunnetoldumu, e1.yas);
-  fonk(e1i.vki(e1i.kilo, e1i.boy));
+  fonk(e1i.vki(e1i.kilo, e1i.boy)); */
+  islemler islem = new islemler();
+  islem.sayi1 = 23;
+  islem.sayi2 = 0;
+  islem.sayi1_;
+  islem.sayi2_;
+  //print("${islem.sayi1_} + ${islem.sayi2_} = ${islem.bol(islem.sayi1_,islem.sayi2_)}");
+  islem.bol(islem.sayi1_, islem.sayi2_);
 }
