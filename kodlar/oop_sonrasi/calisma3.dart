@@ -151,10 +151,17 @@ main(List<String> args) {
   kontrol(e1.muslumanmi, e1.askerlikyaptimi, e1.sunnetoldumu, e1.yas);
   fonk(e1i.vki(e1i.kilo, e1i.boy)); */
   islemler islem = new islemler();
+  islemler islem2 = new islemler();
+  islemler islem3 = new islemler();
   islem.sayi1 = 23;
   islem.sayi2 = 0;
   islem.sayi1_;
   islem.sayi2_;
   //print("${islem.sayi1_} + ${islem.sayi2_} = ${islem.bol(islem.sayi1_,islem.sayi2_)}");
   islem.bol(islem.sayi1_, islem.sayi2_);
+  //<> karakterleri arasına yazdığımız tipler generic tir. generic kavramı tip koruması sağlar
+  Map<String, String> kimlik = {};
+  List<islemler> i1 = [islem, islem2, islem3];
+  i1[0].sayi1 = 23;
+  //generics kullandım--->tip koruması sağlar
 }
