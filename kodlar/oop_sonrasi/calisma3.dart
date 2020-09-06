@@ -1,5 +1,7 @@
 import 'dart:math';
 
+import 'calisma.dart';
+
 class insan {
   bool medenihal;
   int yas;
@@ -110,13 +112,22 @@ class islemler {
 
   bol(num verdigimizdeger, num verdigimizdeger2) {
     num sonuc;
-    sonuc = verdigimizdeger / verdigimizdeger2;
-    throw bolmehatasi();
     try {
-      print("${verdigimizdeger} / ${verdigimizdeger2} =${sonuc}");
-    } catch (e) {
-      print(e.hata());
+      sonuc = verdigimizdeger / verdigimizdeger2;
+      hata();
+    } on IntegerDivisionByZeroException {
+      print("Sıfıra bölme hatası!");
     }
+  }
+
+  listetopla(List<num> sayilar, int adet) {
+    int i = 0;
+    num toplam = 0;
+    while (i < adet) {
+      toplam = toplam + sayilar[i];
+      i++;
+    }
+    print("$sayilar dizisinin sayıları toplamı $toplam");
   }
 
   List<num> sayilistesiolustur(List<num> sayilar, int adet) {
@@ -128,8 +139,8 @@ class islemler {
   }
 }
 
-class bolmehatasi implements Exception {
-  String hata() => "Tanımsız.İkinci sayı sıfır olamaz.";
+hata() {
+  throw new IntegerDivisionByZeroException();
 }
 
 //
@@ -163,5 +174,8 @@ main(List<String> args) {
   Map<String, String> kimlik = {};
   List<islemler> i1 = [islem, islem2, islem3];
   i1[0].sayi1 = 23;
+  List<int> sayilarlistesi = new List(5);
+  islem.sayilistesiolustur(sayilarlistesi, 5);
+  islem.listetopla(sayilarlistesi, 5);
   //generics kullandım--->tip koruması sağlar
 }
